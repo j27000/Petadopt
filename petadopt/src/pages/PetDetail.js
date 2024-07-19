@@ -33,15 +33,15 @@ const PetDetail = () => {
     }
 
     return (
-        <main >
+        <main>
             <section>
                 <h1 className="mt-20 mb-5 text-4xl text-center font-bold text-black">{pet.name}</h1>
                 <p className="mb-5 text-lg text-center text-gray-900 text-black">{pet.description}</p>
                 <div className="flex flex-wrap justify-around">
-                    <div className="max-w-xl my-3">
-                        <img className="rounded" src={pet.imageUrl} alt={pet.name} />
+                    <div className="max-w-xl my-3 w-full md:w-1/2">
+                        <img className="rounded w-full h-96 object-cover" src={pet.imageUrl} alt={pet.name} />
                     </div>
-                    <div className="max-w-xl my-3">
+                    <div className="max-w-xl my-3 w-full md:w-1/2">
                         <p className="text-3xl font-bold text-gray-900 text-black">
                             <span className="mr-1">$</span>
                             <span className="">{pet.price}</span>
