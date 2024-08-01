@@ -2,13 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../Context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../Context/Contextpet';
 
 export const Dropdownadmin = ({ setShowLogin }) => {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
+    const { clearCart } = useCart();
 
     const handleLogout = () => {
         logout();
+        clearCart();
         setShowLogin(false);
         navigate("/");
     };

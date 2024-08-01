@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { Petreducer } from "../Reducers/Petreducer";
 
 const initialPet = {

@@ -2,13 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useAuth } from '../../Context/AuthContext'
 import { useNavigate } from 'react-router-dom'
+import { useCart } from "../../Context/Contextpet"
 
 export const DropdownLogin = ({ setshowLogin }) => {
     const { user, logout } = useAuth();
+    const { clearCart, petList } = useCart();
     const navigate = useNavigate();
 
     const handleLogout = () => {
         logout();
+        console.log(petList)
+        clearCart();
         setshowLogin(false);
         navigate("/");
     }
@@ -18,7 +22,7 @@ export const DropdownLogin = ({ setshowLogin }) => {
             <div className="py-1">
                 <div className="px-4 py-3">
                     <p className="text-sm">Signed in as</p>
-                    <p className="text-sm font-medium text-gray-900 truncate">{user?.email || 'shubham@example.com'}</p>
+                    <p className="text-sm font-medium text-gray-900 truncate">{user?.email || 'naman@example.com'}</p>
                 </div>
                 <div className="border-t border-gray-100"></div>
                 <Link

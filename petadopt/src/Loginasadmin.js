@@ -24,7 +24,7 @@ export const Loginasadmin = () => {
 
       if (userData && userData.isAdmin) {
         console.log(`Admin logged in: ${email}`);
-        navigate('/admin-dashboard');
+        navigate('/dashboard');
       } else {
         setError('Access denied. Only admins can log in.');
         await auth.signOut();
