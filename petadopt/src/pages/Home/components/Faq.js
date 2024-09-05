@@ -1,33 +1,5 @@
 import React, { useState } from 'react';
-
-const Accord = ({ p }) => {
-  const [show, setShow] = useState(false);
-  const { que, description } = p;
-
-  return (
-    <div className="border-b border-gray-200 last:border-b-0">
-      <button
-        onClick={() => setShow(!show)}
-        className="flex items-center justify-between w-full py-4 px-5 text-left text-gray-800 hover:bg-purple-50 transition-colors duration-300"
-      >
-        <span className="font-medium">{que}</span>
-        <svg
-          className={`w-5 h-5 text-purple-600 transform transition-transform duration-300 ${show ? 'rotate-180' : ''}`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-      {show && (
-        <div className="p-5 bg-white">
-          <p className="text-gray-600">{description}</p>
-        </div>
-      )}
-    </div>
-  );
-};
+import {Accord} from "./Accord"
 
 export const Faq = () => {
   const faqs = [
