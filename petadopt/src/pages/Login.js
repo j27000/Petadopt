@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { auth } from '../firebaseconfig';
+import { auth, db } from '../firebaseconfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate, Link } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../firebaseconfig';
 
 export const Login = () => {
     const [email, setEmail] = useState('');
@@ -35,6 +34,15 @@ export const Login = () => {
         } finally {
             setIsLoading(false);
         }
+    };
+
+
+
+
+
+    const fillDummyCredentials = () => {
+        setEmail('naman@example.com');
+        setPassword('namanjhala');
     };
 
     return (
@@ -86,6 +94,16 @@ export const Login = () => {
                             {isLoading ? 'Logging in...' : 'Log In'}
                         </button>
                     </form>
+                    <div className="mt-4 space-y-2">
+
+                        <button
+                            onClick={fillDummyCredentials}
+                            className="w-full px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 rounded-md transition duration-300"
+                        >
+                            Fill Dummy Credentials
+                        </button>
+
+                    </div>
                 </div>
                 <div className="px-8 py-6 bg-gray-50 dark:bg-gray-700 border-t border-gray-200 dark:border-gray-600">
                     <Link
