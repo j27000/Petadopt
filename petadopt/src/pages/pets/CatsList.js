@@ -53,8 +53,8 @@ export const CatsList = () => {
     <main>
       <section className="mt-20">
         <div className="my-5 flex justify-between items-center">
-          <span className="text-2xl font-semibold text-black">
-            Cats {pets.length}
+          <span className="text-2xl font-semibold text-black my-20">
+           All Cats {pets.length}
           </span>
         </div>
 
