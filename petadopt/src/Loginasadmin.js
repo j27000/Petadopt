@@ -37,6 +37,12 @@ export const Loginasadmin = () => {
     }
   };
 
+ 
+  const fillDummyCredentials = () => {
+    setEmail('admin@example.com');
+    setPassword('adminnaman');
+  };
+
   return (
     <main className="flex items-center justify-center min-h-screen bg-gradient-to-r from-purple-100 to-blue-100 dark:from-white-800 dark:to-gray-900 p-4">
       <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden">
@@ -87,6 +93,14 @@ export const Loginasadmin = () => {
               {isLoading ? 'Logging in...' : 'Log In As Admin'}
             </button>
           </form>
+          <div className="mt-4 space-y-2">
+            <button
+              onClick={fillDummyCredentials}
+              className="w-full px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 rounded-md transition duration-300"
+            >
+              Fill Dummy Admin Credentials
+            </button>
+          </div>
         </div>
         <div className="px-8 py-6 bg-gray-50 dark:bg-gray-700 border-t border-gray-200 dark:border-gray-600">
           <p className="text-sm text-center text-gray-600 dark:text-gray-400">
