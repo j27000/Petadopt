@@ -60,9 +60,9 @@ export const ExploreList = () => {
 
   return (
     <main>
-      <section className="mt-20">
-        <div className="my-5 flex justify-between items-center">
-          <span className="text-2xl font-semibold text-black">
+      <section className="mt-2">
+        <div className="my-10 flex justify-between items-center">
+          <span className="text-2xl font-semibold text-black my-20 ">
             All Pets {pets.length}
           </span>
         </div>

@@ -54,7 +54,7 @@ export const OthersList = () => {
     <main>
       <section className="mt-20">
         <div className="my-5 flex justify-between items-center">
-          <span className="text-2xl font-semibold text-black">
+          <span className="text-2xl font-semibold text-black my-20">
             Birds and Rabbits {pets.length}
           </span>
         </div>
