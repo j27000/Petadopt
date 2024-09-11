@@ -51,9 +51,9 @@ export const DogsList = () => {
 
   return (
     <main>
-      <section className="mt-20">
-        <div className="my-5 flex justify-between items-center">
-          <span className="text-2xl font-semibold text-black">
+      <section className="mt-10">
+        <div className="my-10 flex justify-between items-center">
+          <span className="text-2xl font-semibold text-black my-20">
             All Dogs {pets.length}
           </span>
         </div>
