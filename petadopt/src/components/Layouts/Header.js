@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import logo from "../../assets/logo.png"
 import { Link, useNavigate } from 'react-router-dom'
 import { Search } from '../Sections/Search'
@@ -15,6 +15,25 @@ export const Header = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const dropdownRef = useRef(null);
+  const searchRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowLogin(false);
+      }
+      if (searchRef.current && !searchRef.current.contains(event.target) && 
+          !event.target.closest('button[onClick*="handleSearchClick"]')) {
+        setShow(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const canAccessCart = user && !user.isAdmin;
 
@@ -25,6 +44,11 @@ export const Header = () => {
     } else {
       navigate('/Login');
     }
+  };
+
+  const handleSearchClick = (e) => {
+    e.preventDefault();
+    setShow(!show);
   };
 
   const toggleMenu = () => {
@@ -40,7 +64,7 @@ export const Header = () => {
         </Link>
         
         <div className="flex items-center md:order-2">
-          <button onClick={() => setShow(!show)} className="text-white hover:text-yellow-300 transition-colors duration-300 p-2">
+          <button onClick={handleSearchClick} className="text-white hover:text-yellow-300 transition-colors duration-300 p-2">
             <i className="bi bi-search text-xl sm:text-2xl"></i>
           </button>
           <Link to={"/Cart"}
@@ -86,7 +110,7 @@ export const Header = () => {
         </div>
       </div>
       {showLogin && (
-        <div className="absolute right-4 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-30">
+        <div ref={dropdownRef} className="absolute right-4 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-30">
           {user ? (
             user.isAdmin ? (
               <Dropdownadmin setShowLogin={setShowLogin} />
@@ -98,7 +122,7 @@ export const Header = () => {
           )}
         </div>
       )}
-      {show && <Search setshow={setShow} />}
+      {show && <div ref={searchRef}><Search setshow={setShow} /></div>}
     </nav>
   )
 }
