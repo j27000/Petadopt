@@ -17,7 +17,6 @@ https://petadopt-xi.vercel.app/
 
 
 
-
 ## Deployment
 
  Clone the repository: https://github.com/j27000/Petadopt.git
